@@ -5,6 +5,7 @@
 import React from 'react';
 import $ from 'teaspoon';
 import SearchComponent from 'components/SearchComponent';
+
 describe('SearchComponent', () => {
   it('should render properly',() => {
     $(<SearchComponent/>)
