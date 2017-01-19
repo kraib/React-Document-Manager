@@ -5,6 +5,7 @@ require('styles/App.scss');
 import React from 'react';
 import TopNav from './TopNavComponent'
 import Strip from './StripComponent'
+import ListContainer from './ListContainerComponent'
 
 class AppComponent extends React.Component {
   render() {
@@ -12,6 +13,7 @@ class AppComponent extends React.Component {
       <div className="wrapper">
         <TopNav/>
         <Strip/>
+        <ListContainer/>
       </div>
     );
   }
