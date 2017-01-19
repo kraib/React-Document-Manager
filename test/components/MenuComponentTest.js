@@ -30,6 +30,5 @@ describe('MenuComponent', () => {
       .render()
       .find('ul')
       .single('li')
-
   });
 });

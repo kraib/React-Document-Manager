@@ -4,7 +4,11 @@ $accentColor : #f44336;
 $gray : #a0adb7;
 $white : #ffffff;
 $black : #000;
+$bodyBackground : #f5f5f5;
 
+body{
+  background-color: $bodyBackground;
+}
 .topnav-components{
   background-color: $primaryColor;
   color: $white;
@@ -74,6 +78,18 @@ $black : #000;
     }
   }
 }
+.right-icons{
+  color: $gray;
+}
+.btn-danger{
+  background-color: $accentColor;
+}
+.btn{
+  text-transform: capitalize;
+  border-radius: 2px;
+  padding: 8px 35px;
+  font-size: 13px;
+}
 .storage-status{
   padding-top: 20px;
   .amount-used{
@@ -85,5 +101,13 @@ $black : #000;
     opacity: 0.5;
     text-align: right;
     margin-top: 5px;
+  }
+}
+.strip-component{
+  padding: 10px 0 10px 0;
+  .glyphicon {
+    padding-top: 8px;
+    margin-left: 10px;
+    font-size: 16px;
   }
 }

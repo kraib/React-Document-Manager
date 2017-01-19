@@ -7,7 +7,7 @@ import Menu from './MenuComponent'
 class TopNavComponent extends React.Component {
   render() {
     return (
-      <div className="topnav-components">
+      <div className="topnav-component">
         <div className="top-nav">
           <div className="container">
             <Search/>
