@@ -10,7 +10,9 @@ class TopNavComponent extends React.Component {
       <div className="topnav-component">
         <div className="top-nav">
           <div className="container">
-            <Search/>
+            <Search
+              onSearchType={this.props.onSearchType}
+            />
           </div>
         </div>
         <div className="bottom-nav">
@@ -47,7 +49,9 @@ class TopNavComponent extends React.Component {
 TopNavComponent.displayName = 'TopNavComponent';
 
 // Uncomment properties you need
-// TopNavComponent.propTypes = {};
+TopNavComponent.propTypes = {
+  onSearchType:React.PropTypes.func.isRequired
+};
 // TopNavComponent.defaultProps = {};
 
 export default TopNavComponent;

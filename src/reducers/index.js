@@ -4,8 +4,10 @@
 
 import { combineReducers } from 'redux';
 import documents from './documents';
+import search from './search';
 
 export default combineReducers({
-  documents
+  documents,
+  search
 })
 
