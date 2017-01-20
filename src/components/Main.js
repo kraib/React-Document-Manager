@@ -3,17 +3,28 @@ require('bootstrap/dist/css/bootstrap.css');
 require('styles/App.scss');
 
 import React from 'react';
-import TopNav from './TopNavComponent'
-import Strip from './StripComponent'
-import ListContainer from './ListContainerComponent'
+import {connect} from 'react-redux';
+import TopNav from './TopNavComponent';
+import Strip from './StripComponent';
+import {allDocumentsSelector} from '../selectors';
+import {createSelector} from 'reselect';
+import ListContainer from './ListContainerComponent';
 
+const mapStateToProps = createSelector(
+  [allDocumentsSelector],
+  (documents) => ({
+    documents
+  }));
+@connect(mapStateToProps)
 class AppComponent extends React.Component {
   render() {
     return (
       <div className="wrapper">
         <TopNav/>
         <Strip/>
-        <ListContainer/>
+        <ListContainer
+          documents={this.props.documents}
+        />
       </div>
     );
   }

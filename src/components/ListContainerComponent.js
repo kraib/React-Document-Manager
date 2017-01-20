@@ -3,35 +3,25 @@
 import React from 'react';
 import ListItem from './ListItemComponent';
 
-
-
 class ListContainerComponent extends React.Component {
-  render() {
+
+  renderListItem(document){
+    return(
+      <ListItem
+        name={document.name}
+        date={document.date}
+        icon={document.type === 'folder' ? 'glyphicon-folder-close' :'glyphicon-picture'}
+      />
+    )
+  }
+  render(){
+    const mappedDocuments = this.props.documents.map(document => this.renderListItem(document))
     return (
       <div className="listcontainer-component">
         <div className="container">
             <div className="card-box">
-            <ListItem
-              name="Asset Library"
-              date="21st February 2013"
-              icon="glyphicon-folder-close"
-            />
-            <ListItem
-              name="Marketing Drive"
-              date="21st February 2013"
-              icon="glyphicon-folder-close"
-            />
-            <ListItem
-              name="Family Reunion"
-              date="21st February 2013"
-              icon="glyphicon-picture"
-            />
-            <ListItem
-              name="Asset Library"
-              date="Vaccation 2015"
-              icon="glyphicon-picture"
-            />
-          </div>
+              {mappedDocuments}
+            </div>
         </div>
       </div>
     );

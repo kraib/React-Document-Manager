@@ -2,7 +2,6 @@
 
 import React from 'react';
 
-require('styles//Search.css');
 
 class SearchComponent extends React.Component {
   render() {
