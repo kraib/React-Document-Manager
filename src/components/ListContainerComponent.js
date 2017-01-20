@@ -8,6 +8,7 @@ class ListContainerComponent extends React.Component {
   renderListItem(document){
     return(
       <ListItem
+        key={document.id}
         name={document.name}
         date={document.date}
         icon={document.type === 'folder' ? 'glyphicon-folder-close' :'glyphicon-picture'}
