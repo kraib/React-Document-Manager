@@ -6,18 +6,42 @@
 // Uncomment the following lines to use the react test utilities
 // import React from 'react/addons';
 // const TestUtils = React.addons.TestUtils;
-import createComponent from 'helpers/shallowRenderHelper';
+import React from 'react';
+import $ from 'teaspoon';
+import ConnectedMain, {AppComponent as Main} from 'components/Main';
+import TopNavComponent from 'components/TopNavComponent.js';
+import ListContainer from 'components/ListContainerComponent';
+import Strip from 'components/StripComponent';
+import store from 'stores';
+import {Provider} from 'react-redux';
 
-import Main from 'components/Main';
 
 describe('MainComponent', () => {
-  let MainComponent;
-
-  beforeEach(() => {
-    MainComponent = createComponent(Main);
+  it('should render connected main', () => {
+    $(<Provider store={store}>
+        <ConnectedMain/>
+      </Provider>
+      )
+      .render()
+      .single($.s(ConnectedMain))
   });
 
-  it('should have its component name as default className', () => {
-    expect(MainComponent.props.className).to.equal('wrapper');
+  it('should render wrapper class', () => {
+    $(<Main/>)
+      .shallowRender()
+      .single('.wrapper')
   });
+
+  it('should render properly', () => {
+    $(<Main/>)
+      .shallowRender()
+      .find('.wrapper')
+      .single($.s(TopNavComponent))
+      .end()
+      .single($.s(ListContainer))
+      .end()
+      .single($.s(Strip))
+
+  });
+
 });

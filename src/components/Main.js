@@ -4,10 +4,10 @@ require('styles/App.scss');
 
 import React from 'react';
 import {connect} from 'react-redux';
+import {createSelector} from 'reselect';
 import TopNav from './TopNavComponent';
 import Strip from './StripComponent';
 import {searchedDocuments} from '../selectors';
-import {createSelector} from 'reselect';
 import ListContainer from './ListContainerComponent';
 import * as actions from '../actions'
 const mapStateToProps = createSelector(
@@ -15,8 +15,8 @@ const mapStateToProps = createSelector(
   (documents) => ({
     documents
   }));
-@connect(mapStateToProps)
-class AppComponent extends React.Component {
+
+export class AppComponent extends React.Component {
   onSearchType(event){
     this.props.dispatch(actions.updateSearch(event.target.value.toLowerCase() ));
   }
@@ -38,4 +38,4 @@ class AppComponent extends React.Component {
 AppComponent.defaultProps = {
 };
 
-export default AppComponent;
+export default connect(mapStateToProps)(AppComponent)

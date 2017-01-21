@@ -8,8 +8,10 @@ import SearchComponent from 'components/SearchComponent';
 
 describe('SearchComponent', () => {
   it('should render properly',() => {
-    $(<SearchComponent/>)
-      .render()
+    $(<SearchComponent
+        onSearchType={()=>{}}
+      />)
+      .shallowRender()
       .single('.search-input')
       .tap(collection => {
         collection
