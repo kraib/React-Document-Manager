@@ -1,8 +1,8 @@
 import Immutable from 'seamless-immutable';
-import {searchedDocuments,allDocumentsSelector} from '../../src/selectors'
+import {searchedDocuments,allDocumentsSelector,search} from '../../src/selectors'
 
 describe('selectors', () => {
-  const documents = Immutable.from([
+  const state = {search:{q:'asset'},documents:Immutable.from([
     {
       id:1,
       name: 'Asset Library',
@@ -32,9 +32,14 @@ describe('selectors', () => {
       type: 'image'
     }
 
-  ]);
+  ])};
   it('it should search', () => {
-    const text = 'asset';
-    assert(searchedDocuments.resultFunc(documents,text), [documents[0]]);
+    assert.deepEqual(searchedDocuments.resultFunc(state.documents,state.search), [state.documents[0]]);
+  });
+  it('it should all documents', () => {
+    assert.deepEqual(allDocumentsSelector(state), state.documents);
+  });
+  it('it should show search', () => {
+    assert.deepEqual(search(state), state.search);
   })
 })

@@ -1,5 +1,5 @@
 import Immutable from 'seamless-immutable';
-const initialData = Immutable.from([
+export const initialData = Immutable.from([
   {
     id:1,
     name: 'Asset Library',

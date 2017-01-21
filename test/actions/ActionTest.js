@@ -8,6 +8,6 @@ describe('actions', () => {
       type: types.UPDATE_SEARCH,
       payload:text
     }
-    assert(actions.updateSearch(text),expectedAction)
+    assert.deepEqual(actions.updateSearch(text),expectedAction)
   })
 })

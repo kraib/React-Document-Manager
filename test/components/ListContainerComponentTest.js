@@ -1,22 +1,33 @@
 /* eslint-env node, mocha */
 /* global expect */
 /* eslint no-console: 0 */
-'use strict';
-
 // Uncomment the following lines to use the react test utilities
 // import TestUtils from 'react-addons-test-utils';
-import createComponent from 'helpers/shallowRenderHelper';
-
-import ListContainerComponent from 'components//ListContainerComponent.js';
+'use strict';
+import React from 'react';
+import $ from 'teaspoon';
+import ListContainer from 'components/ListContainerComponent';
+import ListItem from 'components/ListItemComponent';
+import {initialData} from '../../src/reducers/documents';
 
 describe('ListContainerComponent', () => {
-  let component;
-
-  beforeEach(() => {
-    component = createComponent(ListContainerComponent);
+  it('should render card', () => {
+    $(<ListContainer
+        documents={initialData}
+      />)
+      .render()
+      .find('.container')
+      .single('.card-box')
   });
 
-  it('should have its component name as default className', () => {
-    expect(component.props.className).to.equal('listcontainer-component');
+  it('should render list items', () => {
+  const numberOfItems = $(<ListContainer
+      documents={initialData}
+    />)
+      .render()
+      .find($.s(ListItem))
+      .length;
+    assert.deepEqual(numberOfItems,initialData.length);
   });
+
 });
