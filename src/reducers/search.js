@@ -1,6 +1,6 @@
 import Immutable from 'seamless-immutable';
 import {UPDATE_SEARCH} from '../actions/types'
-const initialData = Immutable.from({q:''});
+export const initialData = Immutable.from({q:''});
 
 const search = (state = initialData, action) => {
 
