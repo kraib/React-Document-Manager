@@ -4,19 +4,20 @@
 'use strict';
 
 // Uncomment the following lines to use the react test utilities
-// import TestUtils from 'react-addons-test-utils';
-import createComponent from 'helpers/shallowRenderHelper';
+import React from 'react';
+import TestUtils from 'react-addons-test-utils';
+import ReactDOM from 'react-dom';
+// import createComponent from 'helpers/shallowRenderHelper';
 
 import TopNavComponent from 'components//TopNavComponent.js';
 
 describe('TopNavComponent', () => {
-  let component;
-
-  beforeEach(() => {
-    component = createComponent(TopNavComponent);
-  });
-
-  it('should have its component name as default className', () => {
-    expect(component.props.className).to.equal('topnav-component');
-  });
+  it('Should have top nav class', () => {
+  const instance = TestUtils.renderIntoDocument(
+      <TopNavComponent
+        onSearchType={() => {}}
+      />
+    );
+    assert.ok(ReactDOM.findDOMNode(instance).className.match(/\btopnav-component\b/));
+    })
 });
